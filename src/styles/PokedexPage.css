@@ -1,0 +1,200 @@
+/* src/styles/PokedexPage.css */
+
+/* Estilos para la PokedexPage */
+.pokedex-page-container {
+  background-color: var(--pokemon-light-gray);
+  color: var(--pokemon-dark-gray);
+  padding-top: 40px; /* Asegurar espacio para el encabezado y barra de búsqueda */
+}
+
+.pokedex-title {
+  color: var(--pokemon-dark-blue);
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+}
+
+/* Para la futura cuadrícula de Pokémon */
+.pokemon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 3 en 3 responsivo */
+    gap: 20px; /* Espacio entre tarjetas */
+    justify-items: center;
+    max-width: 1000px; /* Ancho máximo para la cuadrícula */
+    margin: 0 auto; /* Centrar la cuadrícula */
+}
+/* Media queries para 3 en 3 */
+@media (min-width: 768px) {
+  .pokemon-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .pokemon-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Estilos de búsqueda */
+/* src/styles/PokedexPage.css */
+
+.search-bar-container {
+  display: flex;
+  gap: 10px; 
+  margin-top: 20px;
+  margin-bottom: 30px;
+  width: 100%; 
+  max-width: 600px; 
+  padding: 15px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  align-items: center; 
+  margin-left: auto; 
+  margin-right: auto;
+}
+
+.search-bar-container input { /* Estilos para inputs dentro de este contenedor específico */
+  padding: 10px 15px; /* Ajusta el padding para que no sea muy grande o pequeño */
+  border: 1px solid var(--pokemon-blue); /* Color de borde inicial */
+  border-radius: 8px;
+  font-size: 1rem;
+  box-sizing: border-box; /* Asegura que padding y border se incluyan en el ancho */
+}
+
+.pokemon-search-input {
+  flex-grow: 1;       /* Crece para llenar el espacio */
+  flex-shrink: 1;     /* Permite que se encoja si es necesario */
+  flex-basis: auto;   /* Su tamaño base es automático */
+  width: auto;        /* Anula cualquier width fijo que pudiera haber */
+  min-width: 0;       /* ¡CRÍTICO! Permite que el input se encoja a 0 antes de desbordar */
+  border: 1px solid var(--pokemon-accent-yellow); /* Color de borde del input */
+  /* max-width: none; */ /* Puedes mantenerlo si sientes que es necesario */
+}
+
+.search-button {
+  background-color: var(--pokemon-red);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: var(--pokemon-dark-blue); /* Color de hover diferente para el botón de búsqueda */
+}
+
+.type-filters-grid {
+  display: flex;
+  flex-wrap: wrap; /* Para que los badges se envuelvan en varias líneas */
+  gap: 10px; /* Espacio entre los badges */
+  justify-content: center; /* Centrar los badges */
+  width: 75%;
+  padding: 10px;
+  background-color: var(--pokemon-light-gray);
+  border-radius: 8px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05); /* Sombra interna suave */
+}
+
+/* Reutilizamos los estilos de .pokemon-type-badge de PokemonCard.css */
+/* Pero aquí podemos añadir estilos específicos para cuando son filtros */
+.pokemon-type-badge {
+    /* Asegúrate de que los estilos básicos de badge del PokemonCard.css estén cargados */
+    /* Aquí añadimos el cursor pointer y transición para que parezcan clicables */
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+    border: 1px solid transparent; /* Borde por defecto para no cambiar el tamaño al activar */
+}
+
+.pokemon-type-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo para el badge "Todos" */
+.pokemon-type-all {
+    background-color: #B0B0B0; /* Gris para "Todos" */
+    color: white;
+}
+.pokemon-type-all:hover {
+    background-color: #909090;
+}
+
+/* Estilo para el badge de tipo activo (el que está filtrando) */
+.pokemon-type-badge.active {
+    border: 2px solid var(--pokemon-dark-blue); /* Borde más oscuro cuando está activo */
+    box-shadow: 0 0 0 3px var(--pokemon-accent-yellow); /* Sombra amarilla brillante cuando está activo */
+    transform: scale(1.05); /* Ligeramente más grande */
+}
+
+/* Ajustes a los colores de los iconos cuando el badge está activo (si es necesario) */
+.pokemon-type-badge.active .pokemon-type-icon {
+  filter: drop-shadow(0 0 2px rgba(255, 255, 0, 0.8)); /* Resplandor amarillo */
+}
+
+.search-error-message {
+  color: var(--pokemon-red);
+  font-size: 1rem;
+  margin-top: -15px; /* Ajustar margen para que esté más cerca del input */
+  margin-bottom: 20px;
+}
+
+/* Estilos de paginación */
+.pagination-controls {
+  margin-top: 40px; /* Espacio superior */
+  display: flex;
+  justify-content: center; /* Centrar el botón */
+  width: 100%;
+}
+
+.load-more-button {
+  background-color: var(--pokemon-blue);
+  color: white;
+  padding: 12px 25px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.load-more-button:hover {
+  background-color: var(--pokemon-dark-blue);
+  transform: translateY(-2px);
+}
+
+/* Mensaje de error general */
+.error-message {
+  color: var(--pokemon-red);
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+/* Estilos para el botón de cerrar sesión */
+.logout-button {
+  position: absolute; /* Posicionamiento absoluto respecto a su contenedor con position: relative */
+  top: 20px; /* Margen desde arriba */
+  right: 20px; /* Margen desde la derecha */
+  background-color: var(--pokemon-red); /* Color de Pokebola Rojo */
+  color: white;
+  padding: 8px 15px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  z-index: 10; /* Asegura que esté por encima de otros elementos */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.logout-button:hover {
+  background-color: var(--pokemon-dark-blue); /* Cambio de color al pasar el mouse */
+  transform: translateY(-1px); /* Ligero efecto de levantamiento */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Es importante que .pokedex-page-container tenga position: relative; para que el botón se posicione correctamente */
+.pokedex-page-container {
+  /* ... (estilos existentes) ... */
+  position: relative; /* ¡Asegúrate que esta línea esté aquí! */
+}

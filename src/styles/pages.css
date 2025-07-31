@@ -1,0 +1,44 @@
+/* src/styles/pages.css */
+
+/* Estilos para la WelcomePage
+.welcome-page-container {
+  background-image: url('../assets/pokeball-background.png');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.welcome-page-container h1 {
+  font-size: 3.5rem;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.welcome-page-container p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.welcome-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  max-width: 400px;
+  width: 100%;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.welcome-form input {
+  color: var(--pokemon-dark-gray);
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+}
+.welcome-form input:focus {
+  border-color: var(--pokemon-accent-yellow);
+  box-shadow: 0 0 0 3px rgba(var(--pokemon-accent-yellow-rgb, 255, 203, 5), 0.4);
+} */

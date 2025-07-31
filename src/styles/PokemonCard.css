@@ -1,0 +1,141 @@
+/* src/styles/PokemonCard.css */
+
+.pokemon-card {
+  background-color: white;
+  border: 1px solid var(--pokemon-blue);
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 100%; /* Para que se ajuste bien en la cuadrícula */
+  max-width: 300px; /* Límite para que no sean enormes */
+}
+
+.pokemon-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.pokemon-card-image-container {
+  background-color: var(--pokemon-light-gray); /* Un fondo claro para la imagen */
+  border-radius: 50%; /* Circular */
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 120px; /* Tamaño del círculo de la imagen */
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.pokemon-card-image {
+  width: 96px; /* Tamaño del sprite de Pokémon */
+  height: 96px;
+  object-fit: contain; /* Asegura que la imagen se vea completa */
+  image-rendering: pixelated; /* Mantiene la nitidez de los sprites pixelados */
+}
+
+.pokemon-card-info {
+  text-align: center;
+  width: 100%;
+}
+
+.pokemon-card-id {
+  font-size: 0.9rem;
+  color: var(--pokemon-blue);
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.pokemon-card-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--pokemon-dark-blue);
+  margin-bottom: 10px;
+  text-transform: capitalize; /* Para que el nombre del Pokémon se vea bien capitalizado */
+}
+
+.pokemon-card-types {
+  display: flex;
+  justify-content: center;
+  gap: 8px; /* Espacio entre los badges de tipo */
+  flex-wrap: wrap; /* Por si hay muchos tipos */
+}
+
+.pokemon-type-icon {
+  width: 16px; /* Tamaño del icono */
+  height: 16px;
+  filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.4)); /* Sombra para que resalte en fondos claros */
+}
+.pokemon-type-badge {
+  display: flex; 
+  align-items: center;
+  gap: 5px; 
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: white;
+  text-transform: uppercase;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer; 
+  transition: all 0.2s ease-in-out; 
+  border: 1px solid transparent; 
+  /* Base del efecto glow (sombra sutil en color negro para que no interfiera) */
+  filter: drop-shadow(0 0 2px rgba(0,0,0,0.2)); 
+}
+
+.pokemon-type-badge:hover {
+  transform: translateY(-2px) scale(1.02); 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  /* Efecto GLOW al pasar el mouse: usa el color de fondo del badge */
+  /* Genera un brillo basado en el color de fondo actual del elemento */
+  filter: drop-shadow(0 0 5px currentColor) /* Brillo suave del color del texto/fondo */
+          drop-shadow(0 0 10px currentColor); /* Capa de brillo más difusa */
+  /* Ajustar la opacidad del brillo para que no sea demasiado fuerte si el color es muy oscuro */
+  filter: drop-shadow(0 0 5px rgba(var(--badge-rgb, 255,255,255), 0.8)) /* Usar una variable para el RGB */
+          drop-shadow(0 0 10px rgba(var(--badge-rgb, 255,255,255), 0.4));
+}
+
+.pokemon-type-badge.active {
+    border: 2px solid white; /* Borde blanco cuando está activo para resaltar */
+    /* Efecto GLOW más pronunciado cuando está activo: usa el color de fondo del badge */
+    box-shadow: 0 0 0 3px rgba(var(--badge-rgb, 255,255,255), 0.8); /* Borde brillante alrededor */
+    filter: drop-shadow(0 0 8px rgba(var(--badge-rgb, 255,255,255), 0.9)) /* Brillo fuerte */
+            drop-shadow(0 0 15px rgba(var(--badge-rgb, 255,255,255), 0.6)); /* Capa de brillo grande y difusa */
+    transform: scale(1.05); 
+    z-index: 1; 
+}
+
+/* Ajustes a los colores de los iconos cuando el badge está activo */
+.pokemon-type-badge.active .pokemon-type-icon {
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8)); /* Resplandor blanco para el icono activo */
+}
+
+
+/* Colores de badges de tipo de Pokémon (Ejemplos con variables RGB) */
+/* Es crucial añadir una variable --badge-rgb para cada tipo */
+.pokemon-type-normal { background-color: #A8A77A; --badge-rgb: 168,167,122; }
+.pokemon-type-fire { background-color: #EE8130; --badge-rgb: 238,129,48; }
+.pokemon-type-water { background-color: #6390F0; --badge-rgb: 99,144,240; }
+.pokemon-type-grass { background-color: #7AC74C; --badge-rgb: 122,199,76; }
+.pokemon-type-electric { background-color: #F7D02C; --badge-rgb: 247,208,44; }
+.pokemon-type-ice { background-color: #96D9D6; --badge-rgb: 150,217,214; }
+.pokemon-type-fighting { background-color: #C22E28; --badge-rgb: 194,46,40; }
+.pokemon-type-poison { background-color: #A33EA1; --badge-rgb: 163,62,161; }
+.pokemon-type-ground { background-color: #E2BF65; --badge-rgb: 226,191,101; }
+.pokemon-type-flying { background-color: #A98FF3; --badge-rgb: 169,143,243; }
+.pokemon-type-psychic { background-color: #F95587; --badge-rgb: 249,85,135; }
+.pokemon-type-bug { background-color: #A6B91A; --badge-rgb: 166,185,26; }
+.pokemon-type-rock { background-color: #B6A136; --badge-rgb: 182,161,54; }
+.pokemon-type-ghost { background-color: #735797; --badge-rgb: 115,87,151; }
+.pokemon-type-dragon { background-color: #6F35FC; --badge-rgb: 111,53,252; }
+.pokemon-type-steel { background-color: #B7B7CE; --badge-rgb: 183,183,206; }
+.pokemon-type-dark { background-color: #705746; --badge-rgb: 112,87,70; }
+.pokemon-type-fairy { background-color: #D685AD; --badge-rgb: 214,133,173; }
+.pokemon-type-all { background-color: #555; --badge-rgb: 85,85,85; } /* Color para "Todos" */

@@ -1,0 +1,113 @@
+/* src/styles/Welcomepage.css */
+
+.welcome-page-container {
+  /* ... (propiedades de imagen de fondo) ... */
+  background-image: url('../assets/pokemon-pixel-art.gif');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  display: flex; /* Para centrar el contenido */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Centra verticalmente */
+  padding: 20px;
+  text-align: center;
+
+
+   /* Ocupa toda la pantalla */
+  min-height: 100vh;
+  width: 100vw; /* Asegura que ocupe todo el ancho del viewport */
+  position: relative; /* Necesario para posicionar el overlay encima */
+  overflow: hidden; /* Para que el GIF no cause scrollbars si se desborda ligeramente */
+
+    /* Alineación de contenido */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+  color: white; 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Overlay de Opacidad */
+.welcome-page-container::before {
+  content: ''; 
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4); 
+  z-index: 0; 
+}
+
+
+.welcome-page-container h1 {
+  font-size: 3.5rem; /* Título más grande */
+  color: white; 
+  margin-bottom: 20px;
+  text-transform: uppercase; /* Para un toque más de marca */
+  letter-spacing: 3px; /* Espaciado entre letras */
+}
+
+.welcome-page-container p {
+  font-size: 1.4rem; /* Párrafo más grande */
+  margin-bottom: 30px;
+  max-width: 500px; /* Limitar ancho del párrafo */
+}
+
+.welcome-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* Más espacio entre elementos del formulario */
+  max-width: 400px;
+  width: 100%;
+  padding: 30px; /* Más padding para que el formulario sea más prominente */
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo más oscuro y semi-transparente */
+  border-radius: 15px; /* Bordes más redondeados */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5); /* Sombra más profunda */
+}
+
+.welcome-form input {
+  color: var(--pokemon-dark-gray); 
+  background-color: rgba(255, 255, 255, 0.9); 
+  border: none;
+  padding: 12px 15px; /* Input más alto */
+  border-radius: 8px; /* Bordes más redondeados */
+  font-size: 1.1rem; /* Fuente más grande en el input */
+  text-align: center; /* Centrar el texto del input */
+}
+.welcome-form input::placeholder {
+    color: var(--pokemon-dark-gray); /* Color del placeholder */
+    opacity: 0.7;
+}
+
+.welcome-form input:focus {
+  border-color: var(--pokemon-accent-yellow);
+  box-shadow: 0 0 0 4px rgba(var(--pokemon-accent-yellow-rgb, 255, 203, 5), 0.5); /* Sombra de enfoque más visible */
+}
+
+.welcome-form button {
+  background-color: var(--pokemon-red); /* Botón principal rojo */
+  padding: 12px 30px; /* Botón más grande */
+  font-size: 1.2rem; /* Fuente más grande */
+  border-radius: 10px; /* Bordes más redondeados */
+  letter-spacing: 1px; /* Espaciado entre letras */
+}
+
+.welcome-form button:hover {
+  background-color: var(--pokemon-dark-blue); /* Hover a azul oscuro */
+  transform: translateY(-2px); /* Pequeño efecto de levantamiento */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Sombra al pasar el mouse */
+}
+
+.welcome-page-container > h1,
+.welcome-page-container > p,
+.welcome-page-container > form {
+  position: relative; /* Los posiciona por encima del z-index: 0 del overlay */
+  z-index: 1; /* Valor mayor que el del overlay */
+}

@@ -1,0 +1,66 @@
+/* src/styles/ErrorMessage.css */
+
+.error-message-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  text-align: center;
+  background-color: white;
+  border: 2px solid var(--pokemon-red);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin: 40px auto;
+  max-width: 500px;
+}
+
+.error-icon {
+  font-size: 4rem; /* Tamaño grande para el icono */
+  color: var(--pokemon-red);
+  margin-bottom: 20px;
+}
+
+.error-title {
+  font-size: 1.8rem;
+  color: var(--pokemon-dark-blue);
+  margin-bottom: 15px;
+}
+
+.error-text {
+  font-size: 1.1rem;
+  color: var(--pokemon-dark-gray);
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+.error-retry-button {
+  background-color: var(--pokemon-blue);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 10px; /* Espacio si hay otro botón */
+}
+
+.error-retry-button:hover {
+  background-color: var(--pokemon-dark-blue);
+}
+
+.error-back-button {
+  display: inline-block; /* Para que parezca un botón */
+  background-color: var(--pokemon-red);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.error-back-button:hover {
+  background-color: #C22E28; /* Un rojo más oscuro */
+}
