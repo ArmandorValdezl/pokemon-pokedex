@@ -1,6 +1,6 @@
 // src/pages/PokemonDetailPage.tsx
 import { useParams, Link } from 'react-router-dom';
-import usePokemonDetails, { type PokemonDetail } from '../hooks/usePokemonDetails';
+import usePokemonDetails from '../hooks/usePokemonDetails';
 import { useTrainer } from '../context/TrainerContext';
 import { getTypeIconUrl } from '../utils/typeIcons'; // ¡Importa la función de iconos!
 import '../styles/PokemonDetail.css';
